@@ -8,7 +8,8 @@ var indexRouter = require('./routes/index');
 var bookRouter = require('./routes/book');
 
 var app = express();
-
+const basicAuth = require('express-basic-auth');
+app.use(basicAuth({users: { 'admin': '1234' }}))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
